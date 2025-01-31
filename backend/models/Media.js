@@ -2,7 +2,14 @@ const mongoose = require("mongoose");
 
 const MediaSchema = new mongoose.Schema(
   {
-    url: { type: String, required: true },
+    imageUrl: { type: String, required: true },
+    videoUrl: { type: String, required: true },
+    portraitUrl: { type: String },
+    status: { 
+      type: String, 
+      enum: ['pending', 'processing', 'completed', 'failed'],
+      default: 'pending'
+    }
   },
   { timestamps: true }
 );
